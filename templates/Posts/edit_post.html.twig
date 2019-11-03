@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    {{ parent() }}
+
+    {{ form_start(form, { 'attr' : { 'class' : 'form_post' }}) }}
+
+    <div class="titre_post">
+        {{ form_label(form.title, 'Titre', { 'label_attr' : { 'class' : 'label_newpost' }}) }}
+        {% for error in form.title.vars.errors %}
+            <p class="error_newpost">{{ error.message }}</p>
+        {% endfor %}
+        <br>{{ form_widget(form.title, { 'attr' : { 'class' : 'widget_titre' }}) }}
+    </div>
+    <div class="content_post">
+        {{ form_label(form.content, 'Contenu', { 'label_attr' : { 'class' : 'label_newpost' }}) }}
+        {% for error in form.content.vars.errors %}
+            <p class="error_newpost">{{ error.message }}</p>
+        {% endfor %}
+        <br>{{ form_widget(form.content, { 'attr' : { 'class' : 'widget_content' }}) }}
+    </div>
+    <div class="content_post">
+        {{ form_label(form.image, 'Image en JPEG', { 'label_attr' : { 'class' : 'label_newpost' }}) }}
+        {% for error in form.image.vars.errors %}
+            <p class="error_newpost">{{ error.message }}</p>
+        {% endfor %}
+        <br>{{ form_widget(form.image, { 'attr' : { 'class' : 'widget_image' }}) }}
+    </div>
+    <div>
+        {{ form_label(form.category, 'Choix de la Catégorie', { 'label_attr' : { 'class' : 'label_newpost' }}) }}
+        <br>{{ form_widget(form.category, { 'attr' : { 'class' : 'widget_category' }}) }}
+    </div>
+
+    <input type="submit" value="Enregistrer" class="submit_newpost">
+
+    {{ form_end(form) }}
+
+{% endblock body %}

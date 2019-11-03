@@ -1,0 +1,22 @@
+<header>
+    <nav>
+        <ul>
+{#            grace à is_granted, on vérifie si on est connecté, mais on peut ajouter une vérification de role#}
+            {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+                <li>Bonjour {{ app.user.pseudo }}</li>
+                <li><a href="{{ path('index') }}">Accueil</a></li>
+                <li><a href="{{ path('list_post') }}">Post</a></li>
+                <li><a href="{{ path('info') }}">Informations</a></li>
+                <li><a href="{{ path('app_logout') }}">Déconnexion</a></li>
+                <li><a href="{{ path('contact') }}">Contact</a></li>
+            {% else %}
+                <li><a href="{{ path('index') }}">Accueil</a></li>
+                <li><a href="{{ path('info') }}">Informations</a></li>
+                <li><a href="{{ path('inscription') }}">Inscription</a></li>
+                <li><a href="{{ path('app_login') }}">Connexion</a></li>
+                <li><a href="{{ path('contact') }}">Contact</a></li>
+            {% endif %}
+        </ul>
+    </nav>
+</header>
+<div class="clear"></div>

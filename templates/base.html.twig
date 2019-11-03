@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}{{ title }}!{% endblock %}</title>
+        {% block stylesheets %}
+            {{ encore_entry_link_tags('app') }}
+            {{ encore_entry_link_tags('pagecontact') }}
+        {% endblock %}
+    </head>
+    <body>
+        {{ include('structures-principales/header.html.twig') }}
+
+        {% block body %}{% endblock %}
+
+        {{ include('structures-principales/footer.html.twig') }}
+        {% block javascripts %}
+
+        {% endblock %}
+    </body>
+</html>

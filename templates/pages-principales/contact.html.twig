@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    {{ parent() }}
+    <h3 class="titre_contact">Vous voici sur la page contact, si vous avez le moindre problème ou la moindre question, n'hésitez pas à passer par ce formulaire</h3>
+
+    {{ form_start(form, { 'attr' : { 'class' : 'form_contact' }}) }}
+
+        {{ form_label(form.name, null, { 'label_attr' : { 'class' : 'label_contact' }}) }}
+        <br>{{ form_widget(form.name, { 'attr' : { 'class' : 'input_contact', 'placeholder' : 'John' }}) }}
+
+        <br>{{ form_label(form.email, null, { 'label_attr' : { 'class' : 'label_contact' }}) }}
+        <br>{{ form_widget(form.email, { 'attr' : { 'class' : 'input_contact', 'placeholder' : 'john.doe@exemple.com' }}) }}
+
+        <br>{{ form_label(form.subject, null, { 'label_attr' : { 'class' : 'label_contact' }}) }}
+        <br>{{ form_widget(form.subject, { 'attr' : { 'class' : 'input_contact', 'placeholder' : 'Votre sujet...' }}) }}
+
+        <br>{{ form_label(form.content, null, { 'label_attr' : { 'class' : 'label_contact' }}) }}
+        <br>{{ form_widget(form.content, { 'attr' : { 'class' : 'input_contact_textarea', 'placeholder' : 'Veuillez écrire votre message ...' }}) }}
+
+        <br>{{ form_row(form.envoyer, { 'attr' : { 'class' : 'input_contact_submit' }}) }}
+
+    {{ form_end(form) }}
+{% endblock %}

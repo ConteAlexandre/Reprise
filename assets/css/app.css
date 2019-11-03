@@ -1,0 +1,185 @@
+* {-moz-box-sizing: border-box; box-sizing: border-box;}
+
+html{
+    height: 100%;
+}
+
+body {
+    background-color: #fffdf7;
+    position: relative;
+    min-height: 100%;
+    padding-bottom: 250px;
+}
+
+
+/*Style du header*/
+
+header{
+    height: 100px;
+    margin-bottom: 25px;
+    background-color: #235780;
+}
+
+header ul{
+    float: right;
+    margin-right: 10%;
+    margin-top: 1.5%;
+}
+
+header ul li{
+    float: left;
+    margin-right: 10px;
+    background-color: #235780;
+    padding: 10px;
+}
+
+header li a{
+    text-decoration: none;
+    color: black;
+}
+
+header li a:hover{
+    color: white;
+}
+
+
+/*Style du footer*/
+
+footer{
+    background-color: #a05400;
+    width: 100%;
+    bottom: 0;
+    height: 200px;
+    position: absolute;
+}
+
+footer .banderole{
+    width: 50%;
+    float: left;
+    text-align: center;
+}
+
+footer .horaires_ouvertures li{
+    float: left;
+    width: 50%;
+    margin-right: -150px;
+    margin-left: 45px;
+}
+
+.footer-info{
+    line-height: 30px;
+}
+
+.footer-contact{
+    line-height: 32px;
+}
+
+
+/*Style des titres*/
+
+h1 {
+    font-size: 2em;
+    font-weight: bold;
+}
+
+
+/*Style du formulaire de création de Post*/
+
+.form_post{
+    /*border: groove 2px black;*/
+    text-align: center;
+}
+
+.titre_post{
+    margin-bottom: 50px;
+    margin-top: 20px;
+}
+
+.label_newpost{
+    font-size: 1.5em;
+    text-shadow: 1px 1px 1px red;
+}
+
+.error_newpost{
+    color: red;
+    font-weight: bold;
+    font-size: 1.2em;
+    margin-top: 5px;
+}
+
+.widget_titre{
+    width: 50%;
+    height: 30px;
+    border-radius: 5px;
+    margin-top: 25px;
+    background-color: rgba(97, 97, 97, 0.33);
+}
+
+.widget_category{
+    margin: 20px 0;
+    padding: 5px;
+}
+
+.widget_content{
+    margin-top: 25px;
+    margin-bottom: 30px;
+    border-radius: 10px;
+    width: 80%;
+    height: 150px;
+    background-color: rgba(97, 97, 97, 0.32);
+}
+
+.submit_newpost{
+    padding: 8px;
+    margin-bottom: 30px;
+    background-color: blue;
+    color: white;
+    border-radius: 5px;
+    border-color: black;
+}
+
+/*Style du rendu des posts*/
+
+.titre_tablepost{
+    margin-top: 50px;
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.table_post{
+    margin: 0 auto 75px auto;
+}
+
+th, td{
+    border: solid 2px black;
+    text-align: center;
+    padding: 25px;
+}
+
+.lien_action{
+    margin-right: 5px;
+    text-decoration: none;
+}
+
+.lien_nouveau{
+    text-decoration: none;
+    color: blue;
+}
+
+.show-post ul{
+    float: left;
+    text-align: center;
+    width: 33%;
+}
+
+.button-show{
+    text-align: center;
+}
+
+.image_post:hover{
+    margin: auto 0;
+    width: 800px;
+    height: 580px;
+}
+
+

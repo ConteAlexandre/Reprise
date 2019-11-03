@@ -1,0 +1,57 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    {{ parent() }}
+
+
+    <div class="show-post">
+        <ul>
+            <li>Titre : {{ posts.title }}</li>
+            <li>Contenu : {{ posts.content }}</li>
+            <li>Date de Création : {{ posts.createdAt|date('d/m/Y') }}</li>
+            <li>Date de modification : {{ posts.updatedAt|date('d/m/Y') }}</li>
+            <li>Categorie :
+                {% if category[0]['name'] is not null %}
+                {{ category[0]['name'] }}</li>
+            {% else %}
+                Aucune Catégorie</li>
+            {% endif %}
+        </ul>
+        {% if exif is defined %}
+            <ul>
+                Image: <br><img src="{{ asset('images/' ~ posts.image) }}" alt="" width="256px" height="256px" class="image_post">
+            </ul>
+            {% if exif.EXIF is defined %}
+            <ul class="detail-images">
+                <li>Type d'image : {{ exif.FILE.MimeType }}</li>
+                <li>Poids de l'image : {{ exif.FILE.FileSize|length }} Mb</li>
+                <li>Date de prise : {{ exif.EXIF.DateTimeOriginal| date('d/m/Y H:m') }}</li>
+                <li>Largeur de l'image : {{ exif.EXIF.ExifImageWidth }} pixels</li>
+                <li>Longueur de l'image : {{ exif.EXIF.ExifImageLength }} pixels</li>
+                <button id="download_image" name="download_image">
+                    <a href="{{ path('download_actio', { 'id' : posts.id }) }}">Télécharger</a>
+                </button>
+                {% if app.user.id not in likepost %}
+                            <button>
+                                <a href="{{ path('like_action', { 'id': posts.id, 'user_id' : app.user.id }) }}">J'aime</a>
+                            </button>
+                {% elseif app.user.id in likepost %}
+                            <button>
+                                <a href="{{ path('dislike_action', { 'id': posts.id, 'user_id' : app.user.id }) }}">J'aime pas</a>
+                            </button>
+                {% endif %}
+            </ul>
+        {% endif %}
+        {% endif %}
+
+
+    </div>
+    <div class="clear"></div>
+
+    <div class="button-show">
+        <button><a href="{{ path('list_post') }}">Retour</a></button>
+        <button><a href="{{ path('edit_post', { 'id' : posts.id }) }}">Editer</a></button>
+        <button><a href="{{ path('delete_post', { 'id' : posts.id }) }}">Supprimer</a></button>
+    </div>
+
+{% endblock body %}
