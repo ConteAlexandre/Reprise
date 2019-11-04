@@ -22,6 +22,7 @@ class PostForm extends AbstractType
             ->add('title', TextType::class)
             ->add('content', TextareaType::class)
             ->add('image', FileType::class, [
+                'required' => false,
                 'data_class' => null
             ])
             ->add('category', EntityType::class, [

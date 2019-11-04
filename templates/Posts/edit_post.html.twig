@@ -20,7 +20,8 @@
         <br>{{ form_widget(form.content, { 'attr' : { 'class' : 'widget_content' }}) }}
     </div>
     <div class="content_post">
-        {{ form_label(form.image, 'Image en JPEG', { 'label_attr' : { 'class' : 'label_newpost' }}) }}
+        <img src="{{ asset('images/' ~ post.image) }}" alt="" width="126px" height="126px">
+        <br>{{ form_label(form.image, 'Image en JPEG', { 'label_attr' : { 'class' : 'label_newpost' }}) }}
         {% for error in form.image.vars.errors %}
             <p class="error_newpost">{{ error.message }}</p>
         {% endfor %}

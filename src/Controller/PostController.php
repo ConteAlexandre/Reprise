@@ -11,6 +11,7 @@ use App\Repository\PostRepository;
 use App\Services\ImageUpload;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\BinaryFileResponse;
+use Symfony\Component\HttpFoundation\File\File;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -77,6 +78,8 @@ class PostController extends AbstractController
         $form = $this->createForm(PostForm::class, $post);
         $form->handleRequest($request);
 
+
+
         if ($form->isSubmitted() && $form->isValid()){
             $image = $form->get('image')->getData();
             if (isset($image)){
@@ -95,7 +98,8 @@ class PostController extends AbstractController
         return $this->render('/Posts/edit_post.html.twig', [
             'id' => $id,
             'title' => 'Edit',
-            'form' => $form->createView()
+            'form' => $form->createView(),
+            'post' => $post
         ]);
     }
 
