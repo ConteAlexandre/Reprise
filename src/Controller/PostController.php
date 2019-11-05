@@ -79,12 +79,13 @@ class PostController extends AbstractController
         $form->handleRequest($request);
 
 
-
         if ($form->isSubmitted() && $form->isValid()){
             $image = $form->get('image')->getData();
             if (isset($image)){
                 $imagename = $upload->upload($image);
                 $post->setImage($imagename);
+            }else{
+                $post->setImage($post->getImage());
             }
             $em = $this->getDoctrine()->getManager();
             $em->getRepository(Post::class);
